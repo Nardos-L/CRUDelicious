@@ -1,0 +1,23 @@
+@model Dish
+<div class="mb-3">
+    <a asp-controller="Home" asp-action="Index">Home</a>
+</div>
+
+<div class="border-bottom mb-5">
+    <h1 class="text-center">@Model.Name</h1>
+    <p class="text-center">@Model.Chef</p>
+</div>
+
+<p>@Model.Description</p>
+<p>Calories: @Model.Calories</p>
+<p>Tastiness: @Model.Tastiness</p>
+
+<div class="py-3 text-center">
+    <a asp-controller="Dishes" asp-action="Edit" asp-route-dishId="@Model.DishId"
+        class="btn btn-outline-warning m-5">Edit</a>
+
+    <form asp-controller="Dishes" asp-action="Delete" asp-route-dishId="@Model.DishId" method="POST"
+        class="d-inline-block">
+        <button class="btn btn-outline-danger">Delete</button>
+    </form>
+</div>

@@ -1,0 +1,43 @@
+@model Dish
+
+
+<div class="mb-3">
+    <a asp-controller="Home" asp-action="Index">Home</a>
+</div>
+<h3 class="text-center">Edit @Model.Name</h3>
+<form asp-controller="dishes" asp-action="Update" asp-route-id="@Model.DishId" class="shadow p-3 rounded" method="POST">
+    <div class="mb-3">
+        <span class="form-label text-danger font-weight-bold" asp-validation-for="Chef"></span>
+        <label class="form-label" asp-for="Chef"></label>
+        <input class="form-control" asp-for="Chef">   
+    </div>
+    <div class="mb-3">
+        <span class="form-label text-danger font-weight-bold" asp-validation-for="Name"></span>
+        <label class="form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name">   
+    </div>
+    <div class="mb-3">
+        <span class="form-label text-danger font-weight-bold" asp-validation-for="Calories"></span>
+        <label class="form-label" asp-for="Calories"></label>
+        <input class="form-control" asp-for="Calories">   
+    </div>
+
+    <div class="mb-3">
+        <span class="form-label text-danger font-weight-bold" asp-validation-for="Tastiness"></span>
+        <label class="form-label" asp-for="Tastiness"></label>
+        <select asp-for="Tastiness" class="form-select form-control" aria-label="Default select example">
+            @* <option selected>Open this select menu</option> *@
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>  
+    </div>
+    <div class="mb-3">
+        <span class="form-label text-danger font-weight-bold" asp-validation-for="Description"></span>
+        <label class="form-label" asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" ></textarea>
+    </div>
+    <button class="btn btn-outline-success">Edit Dish</button>
+</form>
